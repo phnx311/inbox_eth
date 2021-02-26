@@ -1,0 +1,14 @@
+{
+  "name": "inbox_eth",
+  "version": "1.0.0",
+  "description": "Ethereum Smart Contract project using outdated solidity compiler to learn main concepts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Chi",
+  "license": "ISC",
+  "dependencies": {
+    "solc": "^0.4.17"
+  }
+}

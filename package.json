@@ -4,7 +4,7 @@
   "description": "Ethereum Smart Contract project using outdated solidity compiler to learn main concepts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Eric Chi",
   "license": "ISC",

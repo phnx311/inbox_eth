@@ -1,4 +1,5 @@
 const assert = require('assert');
+const { constants } = require('crypto');
 const ganache = require('ganache-cli'); // gives us access to a provider specific to the network;
 const Web3 = require('web3'); // bringing in a constructor
 const provider = ganache.provider();
@@ -26,7 +27,15 @@ describe('Inbox', () => {
     })
 
     it('has a default message', async () => {
+        console.log(inbox.message);
         const message = await inbox.methods.message().call(); //console.log shows message returns an object with various methods including call
         assert.strictEqual(message, INITIAL_STRING);
+    })
+
+    it('can change the message', async () => {
+        const NEW_STRING = 'Goodbye';
+        const receipt = await inbox.methods.setMessage(NEW_STRING).send({ from: accounts[0] }); //send returns a transaction hash
+        const message = await inbox.methods.message().call();
+        assert.strictEqual(message, NEW_STRING);
     })
 })

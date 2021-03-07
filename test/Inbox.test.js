@@ -27,7 +27,7 @@ describe('Inbox', () => {
     })
 
     it('has a default message', async () => {
-        console.log(inbox.message);
+        console.log(inbox.message, '!!!INBOX OBJECT!!!');
         const message = await inbox.methods.message().call(); //console.log shows message returns an object with various methods including call
         assert.strictEqual(message, INITIAL_STRING);
     })
@@ -35,6 +35,7 @@ describe('Inbox', () => {
     it('can change the message', async () => {
         const NEW_STRING = 'Goodbye';
         const receipt = await inbox.methods.setMessage(NEW_STRING).send({ from: accounts[0] }); //send returns a transaction hash
+        console.log(receipt,'!!!TRANSACTION HASH!!!');
         const message = await inbox.methods.message().call();
         assert.strictEqual(message, NEW_STRING);
     })
